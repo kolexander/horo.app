@@ -21,19 +21,22 @@
 </head>
 <body>
 
+
+<div class="horo_main">
+    <button id="show_main">Show main</button>
+    <div id="horo_today"></div>
+    <div id="horo_main horo_tomorrow"></div>
+</div>
+
+
 <script>
-    $(document).ready(function () {
+    $('#show_main').on('click', function () {
         $.get( "https://horo.io/api/data/main_today", function( data ) {
             $('#horo_today').html(data.data.today);
             $('#horo_tomorrow').html(data.data.tomorrow);
         });
     });
 </script>
-
-<div class="horo_main">
-    <div id="horo_today"></div>
-    <div id="horo_main horo_tomorrow"></div>
-</div>
 
 </body>
 </html>
