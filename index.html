@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .horo_main {
+            padding: 50px;
+            background: #F1F1F1;
+        }
+        #horo_today {
+            padding: 50px;
+            background: lightgoldenrodyellow;
+        }
+        #horo_tomorrow {
+            padding: 20px;
+            background: lightcyan;
+        }
+    </style>
+    <script type="application/javascript" src="js/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+
+<script>
+    $(document).ready(function () {
+        $.get( "http://horo.io.local/api/data/main_today", function( data ) {
+            $('#horo_today').html(data.data.today);
+            $('#horo_tomorrow').html(data.data.tomorrow);
+        });
+    });
+</script>
+
+<div class="horo_main">
+    <div id="horo_today"></div>
+    <div id="horo_main horo_tomorrow"></div>
+</div>
+
+</body>
+</html>
