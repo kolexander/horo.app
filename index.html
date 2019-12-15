@@ -23,7 +23,7 @@
 
 <script>
     $(document).ready(function () {
-        $.get( "http://horo.io.local/api/data/main_today", function( data ) {
+        $.get( "https://horo.io/api/data/main_today", function( data ) {
             $('#horo_today').html(data.data.today);
             $('#horo_tomorrow').html(data.data.tomorrow);
         });
