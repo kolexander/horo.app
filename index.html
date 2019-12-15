@@ -26,19 +26,36 @@
     <button id="show_today">Show main</button>
     <div id="horo_today"></div>
     <div id="horo_tomorrow"></div>
-    <button id="show_tomorrow">Show tomorrow</button>
+    <button id="show_tomorrow">Show tomorrow</button><br/>
+    <button id="clear">Clear</button>
 </div>
 
 
 <script>
     $('#show_today').on('click', function () {
+        var url = 'https://horo.io/api/data/main_today';
+
+        cordova.plugins.RESTful.getSimple(url, (resp) => {
+            var txt = 'Success call get';
+            console.log(txt);
+            $('#horo_today').html(txt);
+        }, (err) => {
+            // Handle error
+            console.error(err)
+        });
+
+        /*
         $.get( "https://horo.io/api/data/main_today", function( data ) {
             $('#horo_today').html(data.data.today);
             $('#horo_tomorrow').html(data.data.tomorrow);
-        });
+        });*/
     });
     $('#show_tomorrow').on('click', function () {
         $('#horo_tomorrow').html('Some horoscope for tomorrow');
+    });
+    $('#clear').on('click', function () {
+        $('#horo_today').html('');
+        $('#horo_tomorrow').html('');
     });
 </script>
 
