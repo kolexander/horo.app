@@ -9,7 +9,7 @@
             background: #F1F1F1;
         }
         #horo_today {
-            padding: 50px;
+            padding: 20px;
             background: lightgoldenrodyellow;
         }
         #horo_tomorrow {
@@ -23,18 +23,22 @@
 
 
 <div class="horo_main">
-    <button id="show_main">Show main</button>
+    <button id="show_today">Show main</button>
     <div id="horo_today"></div>
-    <div id="horo_main horo_tomorrow"></div>
+    <div id="horo_tomorrow"></div>
+    <button id="show_tomorrow">Show tomorrow</button>
 </div>
 
 
 <script>
-    $('#show_main').on('click', function () {
+    $('#show_today').on('click', function () {
         $.get( "https://horo.io/api/data/main_today", function( data ) {
             $('#horo_today').html(data.data.today);
             $('#horo_tomorrow').html(data.data.tomorrow);
         });
+    });
+    $('#show_tomorrow').on('click', function () {
+        $('#horo_tomorrow').html('Some horoscope for tomorrow');
     });
 </script>
 
